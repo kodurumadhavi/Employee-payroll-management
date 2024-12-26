@@ -1,0 +1,26 @@
+#include <stdio.h>
+int main() {
+    char name[50];
+    int hoursWorked;
+    float hourlyRate, overtimeRate, regularPay, overtimePay, totalPay;
+    printf("Enter employee name: ");
+    fgets(name, sizeof(name), stdin);
+    printf("Enter hourly rate: ");
+    scanf("%f", &hourlyRate);
+     printf("Enter hours worked: ");
+    scanf("%d", &hoursWorked);
+    if (hoursWorked > 40) {
+        regularPay = 40 * hourlyRate;
+        overtimeRate = hourlyRate * 1.5;
+        overtimePay = (hoursWorked - 40) * overtimeRate;
+    } else {
+        regularPay = hoursWorked * hourlyRate;
+        overtimePay = 0;
+    }
+    totalPay = regularPay + overtimePay;
+    printf("\nEmployee: %s", name);
+    printf("Regular Pay: $%.2f\n", regularPay);
+    printf("Overtime Pay: $%.2f\n", overtimePay);
+    printf("Total Pay: $%.2f\n", totalPay);
+ return 0;
+}
